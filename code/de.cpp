@@ -14,11 +14,11 @@ double ie(double tn, double h, double tIncrement) {
 		double yn = 1.0; 
 		return yn; 
 	} else {
-		double yn = recursion(tn - tIncrement, h, tIncrement) 
-		+ (f((tn - tIncrement), recursion(tn - tIncrement, h, tIncrement)) 
+		double yn = ie(tn - tIncrement, h, tIncrement) 
+		+ (f((tn - tIncrement), ie(tn - tIncrement, h, tIncrement)) 
 		+ f((tn - tIncrement) + h, 
-			recursion(tn - tIncrement, h, tIncrement) 
-			+ h*f((tn - tIncrement), recursion(tn - tIncrement, h, tIncrement))) )*(h/2.0);
+			ie(tn - tIncrement, h, tIncrement) 
+			+ h*f((tn - tIncrement), ie(tn - tIncrement, h, tIncrement))) )*(h/2.0);
 		 
 		return yn;  
 	}
